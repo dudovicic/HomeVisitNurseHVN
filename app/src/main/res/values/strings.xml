@@ -19,5 +19,14 @@
     <string name="forgot_password_msg">Please enter your registered email, and we will sent you password reset instructions.</string>
     <string name="email_id">Email ID</string>
     <string name="btn_sign_out">Sign Out</string>
+    <string name="click_cardview">Click me for more info.</string>
+    <string name="info_title">Patients info</string>
+    <string name="btn_find">FIND</string>
+    <string name="user_instructions">If you are finished this therapy, you can write notes from this visit and order new visit by clicking the button WRITE.</string>
+    <string name="btn_write">WRITE</string>
+    <string name="btn_gallery">GALLERY</string>
+    <string name="btn_take_a_photo">TAKE A PHOTO</string>
+    <string name="address">Address:</string>
+
 
 </resources>

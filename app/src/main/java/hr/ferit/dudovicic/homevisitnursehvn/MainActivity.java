@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         today.setText("Your visits for: " + date_n);
 
         recyclerView = (RecyclerView) findViewById(R.id.rvPatients);
-        gridLayoutManager = new GridLayoutManager(this, 1, GridLayoutManager.VERTICAL, false);
+        gridLayoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(gridLayoutManager);
 
@@ -107,6 +107,9 @@ public class MainActivity extends AppCompatActivity {
         View mView;
         TextView visit_date_txt;
         TextView visit_hour_txt;
+        TextView patient_name_txt;
+        TextView patient_surname_txt;
+        TextView patient_oib_txt;
         CardView noteCard;
 
         public PatientItemViewHolder(View itemView) {
@@ -114,6 +117,9 @@ public class MainActivity extends AppCompatActivity {
             mView = itemView;
             visit_date_txt = (TextView) itemView.findViewById(R.id.visit_date_txt);
             visit_hour_txt = (TextView) itemView.findViewById(R.id.visit_hour_txt);
+            patient_name_txt = (TextView) itemView.findViewById(R.id.patient_name);
+            patient_surname_txt = (TextView) itemView.findViewById(R.id.patient_surname);
+            patient_oib_txt = (TextView) itemView.findViewById(R.id.patient_oib);
             noteCard = mView.findViewById(R.id.patient_card);
             noteCard.setOnClickListener(this);
         }
@@ -131,9 +137,33 @@ public class MainActivity extends AppCompatActivity {
 
         public void setPatientsLast_visit(String visit_hour) {visit_hour_txt.setText("Time of visit: " + visit_hour);}
 
+        public void setPatientsName(String patient_name) {
+            patient_name_txt.setText("Patients name: " + patient_name);
+        }
+
+        public void setPatientsSurname(String patient_surname) {
+            patient_surname_txt.setText("Patients surname: " + patient_surname);
+        }
+
+        public void setPatientsOib(String patient_oib) {
+            patient_oib_txt.setText(patient_oib);
+        }
+
+        public String getPatientsOib() {
+            String patient_oib = patient_oib_txt.getText().toString();
+            return patient_oib;
+        }
+
+
         @Override
         public void onClick(View v) {
+
+            String patient_oib = getPatientsOib();
+
             Intent intent = new Intent(mView.getContext(), InfoActivity.class);
+
+            intent.putExtra("EXTRA_MESSAGE", patient_oib);
+
             mView.getContext().startActivity(intent);
         }
     }
@@ -189,10 +219,16 @@ public class MainActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         String visit_date = dataSnapshot.child("visit_date").getValue().toString();
                         String visit_hour = dataSnapshot.child("visit_hour").getValue().toString();
+                        String patient_name = dataSnapshot.child("name").getValue().toString();
+                        String patient_surname = dataSnapshot.child("surname").getValue().toString();
+                        String patient_oib = dataSnapshot.child("oib").getValue().toString();
                         String date_n = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
                         if (visit_date.equals(date_n)) {
                             viewHolder.setPatientsOrdered_visit(visit_date);
                             viewHolder.setPatientsLast_visit(visit_hour);
+                            viewHolder.setPatientsName(patient_name);
+                            viewHolder.setPatientsSurname(patient_surname);
+                            viewHolder.setPatientsOib(patient_oib);
                         }
                         else{
                             viewHolder.Layout_hide();
