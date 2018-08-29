@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff0d00</color>
+    <color name="colorPrimaryDark">#f5555959</color>
+    <color name="colorAccent">#cdec0008</color>
+
+    <color name="btn_logut_bg">#ff6861</color>
+    <color name="white">#ffffff</color>
+
+</resources>

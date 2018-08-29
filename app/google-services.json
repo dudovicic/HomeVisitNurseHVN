@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "678343231305",
+    "firebase_url": "https://homevisitnursehvn.firebaseio.com",
+    "project_id": "homevisitnursehvn",
+    "storage_bucket": "homevisitnursehvn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678343231305:android:a9f005fe2970da61",
+        "android_client_info": {
+          "package_name": "hr.ferit.dudovicic.homevisitnursehvn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678343231305-jiu9ptp97kp9la108thr1cptbsqvr2so.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hr.ferit.dudovicic.homevisitnursehvn",
+            "certificate_hash": "12e14515c63e23bd83fa08510831399897f2161e"
+          }
+        },
+        {
+          "client_id": "678343231305-qj232rc35m7lv323hccn1foo594deg19.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDItPOH5WJffYkNOokOKyJARt9ejyo9NwI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678343231305-qj232rc35m7lv323hccn1foo594deg19.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
