@@ -1,9 +1,11 @@
 package hr.ferit.dudovicic.homevisitnursehvn;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -14,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import hr.ferit.dudovicic.homevisitnursehvn.AccountActivity.LoginActivity;
+
 import android.annotation.SuppressLint;
 
 
@@ -29,6 +32,8 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
+        btn_find = (Button) findViewById(R.id.btn_find);
+
         patient_name_txt = (TextView) findViewById(R.id.patient_name);
         patient_surname_txt = (TextView) findViewById(R.id.patient_surname);
         patient_oib_txt = (TextView) findViewById(R.id.patient_oib);
@@ -39,6 +44,18 @@ public class InfoActivity extends AppCompatActivity {
         visit_hour_txt = (TextView) findViewById(R.id.visit_hour_txt);
         visit_therapy_txt = (TextView) findViewById(R.id.visit_therapy);
         visit_notes_txt = (TextView) findViewById(R.id.visit_notes);
+
+
+        btn_find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = getPatientsAddress();
+                Intent intent = new Intent(InfoActivity.this, MapsActivity.class);
+                intent.putExtra("EXTRA_MESSAGE", url);
+                startActivity(intent);
+            }
+        });
+
 
         Intent intent = getIntent();
         String oib = intent.getStringExtra("EXTRA_MESSAGE");
@@ -117,5 +134,10 @@ public class InfoActivity extends AppCompatActivity {
         if (authListener != null) {
             auth.removeAuthStateListener(authListener);
         }
+    }
+
+    public String getPatientsAddress() {
+        String address = patient_address_txt.getText().toString();
+        return address;
     }
 }

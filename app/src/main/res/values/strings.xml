@@ -27,6 +27,7 @@
     <string name="btn_gallery">GALLERY</string>
     <string name="btn_take_a_photo">TAKE A PHOTO</string>
     <string name="address">Address:</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>
