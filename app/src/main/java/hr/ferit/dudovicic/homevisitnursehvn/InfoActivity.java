@@ -33,6 +33,7 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
 
         btn_find = (Button) findViewById(R.id.btn_find);
+        btn_write = (Button) findViewById(R.id.btn_write);
 
         patient_name_txt = (TextView) findViewById(R.id.patient_name);
         patient_surname_txt = (TextView) findViewById(R.id.patient_surname);
@@ -45,6 +46,15 @@ public class InfoActivity extends AppCompatActivity {
         visit_therapy_txt = (TextView) findViewById(R.id.visit_therapy);
         visit_notes_txt = (TextView) findViewById(R.id.visit_notes);
 
+        btn_write.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String oib = getPatientsOib();
+                Intent intent = new Intent(InfoActivity.this, WriteActivity.class);
+                intent.putExtra("EXTRA_MESSAGE", oib);
+                startActivity(intent);
+            }
+        });
 
         btn_find.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +105,7 @@ public class InfoActivity extends AppCompatActivity {
                     visit_hour_txt.setText("in:" + visit_hour);
                     patient_name_txt.setText(patient_name);
                     patient_surname_txt.setText(patient_surname);
-                    patient_oib_txt.setText("OIB:" + patient_oib);
+                    patient_oib_txt.setText(patient_oib);
                     patient_address_txt.setText(patient_address);
                     patient_blood_type_txt.setText("Blood type:" + patient_blood_type);
                     visit_therapy_txt.setText("Therapy:" + patient_therapy);
@@ -139,5 +149,10 @@ public class InfoActivity extends AppCompatActivity {
     public String getPatientsAddress() {
         String address = patient_address_txt.getText().toString();
         return address;
+    }
+
+    public String getPatientsOib() {
+        String pat_oib = patient_oib_txt.getText().toString();
+        return pat_oib;
     }
 }
