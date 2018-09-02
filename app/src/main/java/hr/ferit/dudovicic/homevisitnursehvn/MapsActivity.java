@@ -18,6 +18,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -68,6 +70,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -84,20 +87,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String provider = locationManager.getBestProvider(criteria, true);
         Location location = locationManager.getLastKnownLocation(provider);
 
+
         if (location != null) {
             double latitude = location.getLatitude();
             double longitude = location.getLongitude();
             LatLng latLng = new LatLng(latitude, longitude);
             current_position = new LatLng(latitude, longitude);
 
-         }
+        }
 
         Intent intent = getIntent();
         strAddress = intent.getStringExtra("EXTRA_MESSAGE");
         patient_position = getLocationFromAddress(this, strAddress);
 
         mMap.addMarker(new MarkerOptions().position(patient_position).title("patient position"));
-        mMap.addMarker(new MarkerOptions().position(current_position).title("current position"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(current_position));
 
         String str_origin = "origin=" + current_position.latitude + "," + current_position.longitude;
