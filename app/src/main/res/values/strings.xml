@@ -25,7 +25,8 @@
     <string name="user_instructions">If you are finished this therapy, you can write notes from this visit and order new visit by clicking the button WRITE.</string>
     <string name="btn_write">WRITE</string>
     <string name="btn_gallery">GALLERY</string>
-    <string name="btn_take_a_photo">TAKE A PHOTO</string>
+    <string name="btn_take_a_photo">PHOTO</string>
+    <string name="btn_take_a_photo1">TAKE A PHOTO</string>
     <string name="address">Address:</string>
     <string name="title_activity_maps">Map</string>
     <string name="save_title">Save data</string>
@@ -34,8 +35,6 @@
     <string name="hint_date">Datetype YYYY-MM-DD</string>
     <string name="hint_hour">Hour</string>
     <string name="hint_notes">Notes</string>
-
-
 
 
 </resources>

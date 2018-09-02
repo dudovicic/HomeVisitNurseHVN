@@ -24,7 +24,7 @@
         android:textSize="20sp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_below="@+id/info_title"
+        android:layout_below="@id/info_title"
         android:paddingRight="5dp"
         android:paddingLeft="10dp"
         />
@@ -35,8 +35,8 @@
         android:textSize="20sp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_below="@+id/info_title"
-        android:layout_toRightOf="@+id/patient_name"
+        android:layout_below="@id/info_title"
+        android:layout_toRightOf="@id/patient_name"
         />
     <TextView
         android:id="@+id/patient_oib"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:layout_below="@+id/patient_name"
+        android:layout_below="@id/patient_name"
         android:paddingRight="5dp"
         android:paddingLeft="10dp"
         />
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:layout_below="@+id/patient_oib"
+        android:layout_below="@id/patient_oib"
         android:paddingRight="5dp"
         android:paddingLeft="10dp"
         />
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:layout_below="@+id/patient_blood_type"
+        android:layout_below="@id/patient_blood_type"
         android:paddingRight="5dp"
         android:paddingLeft="10dp"
         />
@@ -75,7 +75,7 @@
         android:textSize="20sp"
         android:textColor="@color/black"
         android:text="@string/address"
-        android:layout_below="@+id/patient_history"
+        android:layout_below="@id/patient_history"
         android:paddingRight="5dp"
         android:paddingLeft="10dp"
         android:paddingBottom="5dp"
@@ -86,10 +86,10 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:layout_below="@+id/patient_history"
+        android:layout_below="@id/patient_history"
         android:paddingRight="5dp"
         android:paddingBottom="5dp"
-        android:layout_toRightOf="@+id/addressTxt"
+        android:layout_toRightOf="@id/addressTxt"
         />
     <Button
         android:id="@+id/btn_find"
@@ -98,7 +98,7 @@
         android:textSize="20sp"
         android:textColor="@color/black"
         android:text="@string/btn_find"
-        android:layout_below="@+id/patient_address"
+        android:layout_below="@id/patient_address"
         android:layout_centerHorizontal="true"
         android:background="@color/btn_logut_bg"
         />
@@ -108,7 +108,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:layout_below="@+id/btn_find"
+        android:layout_below="@id/btn_find"
         android:paddingRight="5dp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
@@ -119,8 +119,8 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:layout_below="@+id/btn_find"
-        android:layout_toRightOf="@+id/visit_date_txt"
+        android:layout_below="@id/btn_find"
+        android:layout_toRightOf="@id/visit_date_txt"
         android:paddingTop="5dp"
         />
     <TextView
@@ -129,7 +129,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:layout_below="@+id/visit_hour_txt"
+        android:layout_below="@id/visit_hour_txt"
         android:paddingRight="5dp"
         android:paddingLeft="10dp"
         />
@@ -139,7 +139,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:layout_below="@+id/visit_therapy"
+        android:layout_below="@id/visit_therapy"
         android:paddingRight="5dp"
         android:paddingLeft="10dp"
         />
@@ -150,7 +150,7 @@
         android:textSize="12sp"
         android:textColor="@color/black"
         android:text="@string/user_instructions"
-        android:layout_below="@+id/visit_notes"
+        android:layout_below="@id/visit_notes"
         android:paddingRight="5dp"
         android:paddingLeft="10dp"
         android:paddingBottom="5dp"
@@ -163,34 +163,22 @@
         android:textSize="20sp"
         android:textColor="@color/black"
         android:text="@string/btn_write"
-        android:layout_below="@+id/user_instructions"
+        android:layout_below="@id/user_instructions"
         android:layout_centerHorizontal="true"
         android:background="@color/btn_logut_bg"
         />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/btn_gallery"
-            android:textColor="@color/black"
-            android:background="@color/btn_logut_bg"
-            />
 
         <Button
             android:id="@+id/btn_take_a_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
             android:text="@string/btn_take_a_photo"
             android:textColor="@color/black"
             android:background="@color/btn_logut_bg"
+            android:layout_below="@id/btn_write"
+            android:layout_marginTop="10dip"
+            android:layout_centerHorizontal="true"
+
+
             />
-    </LinearLayout>
 </RelativeLayout>

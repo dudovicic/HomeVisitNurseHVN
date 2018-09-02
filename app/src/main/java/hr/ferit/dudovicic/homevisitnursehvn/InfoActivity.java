@@ -23,7 +23,7 @@ import android.annotation.SuppressLint;
 public class InfoActivity extends AppCompatActivity {
 
     TextView patient_name_txt, patient_surname_txt, patient_oib_txt, patient_blood_type_txt, patient_history_txt, patient_address_txt, visit_date_txt, visit_hour_txt, visit_therapy_txt, visit_notes_txt;
-    private Button btn_find, btn_write, btn_gallery, btn_take_a_photo;
+    private Button btn_find, btn_write, btn_take_a_photo;
     private FirebaseAuth auth;
     private DatabaseReference myref;
 
@@ -34,6 +34,7 @@ public class InfoActivity extends AppCompatActivity {
 
         btn_find = (Button) findViewById(R.id.btn_find);
         btn_write = (Button) findViewById(R.id.btn_write);
+        btn_take_a_photo = (Button) findViewById(R.id.btn_take_a_photo);
 
         patient_name_txt = (TextView) findViewById(R.id.patient_name);
         patient_surname_txt = (TextView) findViewById(R.id.patient_surname);
@@ -45,6 +46,16 @@ public class InfoActivity extends AppCompatActivity {
         visit_hour_txt = (TextView) findViewById(R.id.visit_hour_txt);
         visit_therapy_txt = (TextView) findViewById(R.id.visit_therapy);
         visit_notes_txt = (TextView) findViewById(R.id.visit_notes);
+
+        btn_take_a_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String oib = getPatientsOib();
+                Intent intent = new Intent(InfoActivity.this, PhotoActivity.class);
+                intent.putExtra("EXTRA_MESSAGE1", oib);
+                startActivity(intent);
+            }
+        });
 
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
